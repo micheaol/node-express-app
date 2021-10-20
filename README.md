@@ -3,7 +3,7 @@ Awesome Books.
 
 This is a simple node.js and express js application to demo what I have learned.
 
-![alt text](https://github.com/micheaol/Awesome-books/blob/books-with-object/assets/images/project-img.PNG)
+![alt text](https://github.com/micheaol/node-express-app/blob/main/assets/images/img.PNG)
 
 Additional description about the project and its features.
 
