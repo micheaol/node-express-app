@@ -2,6 +2,10 @@ const express = require('express');
 
 const app = express();
 
+
+//set up view engine:
+app.set('view engine', 'ejs')
+
 //listening to the request:
 app.listen(3000);
 
@@ -9,7 +13,7 @@ app.listen(3000);
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
-    res.sendFile('./views/index.html', {root: __dirname});
+    res.render('index')
 });
 
 app.get('/about', (req, res)=>{
