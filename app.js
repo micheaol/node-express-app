@@ -5,6 +5,9 @@ const app = express();
 //listening to the request:
 app.listen(3000);
 
+//accessing static file:
+app.use(express.static('public'));
+
 app.get('/', (req, res)=>{
     res.sendFile('./views/index.html', {root: __dirname});
 });
@@ -19,4 +22,6 @@ app.get('/contact-me', (req, res)=>{
 
 app.use((req,res)=>{
     res.sendFile('./views/404.html', {root: __dirname});
-})
+});
+
+
