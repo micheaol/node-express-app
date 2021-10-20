@@ -13,19 +13,26 @@ app.listen(3000);
 app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
-    res.render('index')
+    const blogs = [
+        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
+        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
+        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
+        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
+    ]
+    res.render('index', {title: "Home", blogs})
 });
+
 
 app.get('/about', (req, res)=>{
-    res.sendFile('./views/about.html', {root: __dirname});
+    res.render('about', {title: "About-us"})
 });
 
-app.get('/contact-me', (req, res)=>{
-    res.sendFile('./views/contact-me.html', {root: __dirname});
+app.get('/blogs/create', (req, res)=>{
+    res.render('create', {title: "Create New Blog"})
 })
 
 app.use((req,res)=>{
-    res.sendFile('./views/404.html', {root: __dirname});
+    res.status(404).render('404', {title: "404"})
 });
 
 

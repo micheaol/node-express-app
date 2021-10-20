@@ -7,6 +7,7 @@
     <title>Blog | <%= title %> </title>
 </head>
 <body>
+    <% const name = 'michael' %> 
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
@@ -15,17 +16,18 @@
         </ul>
     </nav>
     <div class="blog-container">
-        <h2>All Blogs </h2>
-        <% if (blogs.length > 0) { %>
-             <% blogs.forEach(blog => { %>
-                 <h3><%= blog.title %> </h3>
-                 <p><%= blog.snipet %> </p>
-             <% }); %> 
-        <% }else{%>
-                <h4>There are no blogs to show</h4>
-       <% } %>
+        <h2>Create New blog </h2>
     </div>
-  
+
+    <div class="form-div">
+        <form>
+            <input type="text" placeholder="title" required><br>
+            <input type="text" placeholder="snipet" required><br>
+            <textarea name="blog body" id="" cols="30" rows="10"></textarea><br>
+            
+            <button type="submit">Create New blog</button>
+        </form>
+    </div>
     
 </body>
 </html>
