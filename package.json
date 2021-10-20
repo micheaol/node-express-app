@@ -1,0 +1,23 @@
+{
+  "name": "express-app",
+  "version": "1.0.0",
+  "description": "This is a simple node-express app to demo what i have learned",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micheaol/node-express-app.git"
+  },
+  "author": "Michael Oladele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micheaol/node-express-app/issues"
+  },
+  "homepage": "https://github.com/micheaol/node-express-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
