@@ -23,7 +23,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://micheaol.github.io/module-one-capstone/)
+[Live Demo Link](https://node-express-app.micheaol.repl.co)
 
 To get a local copy up and running follow these simple example steps.
 
