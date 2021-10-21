@@ -19,59 +19,26 @@ app.set('view engine', 'ejs')
 //accessing static file:
 app.use(express.static('public'));
 
-//mongoose and mongodb sandbox:
-app.get('/add-blog', (req, res)=>{
-    const blog = new Blog({
-        title: "Seriously Getting it",
-        snipet: "I am on the right path with node.js",
-        blog: "I am seriously trying all I can to ensure I learn node.js"
-    });
-
-    blog.save()
-        .then((result)=>{
-            res.send(result)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-});
-
-//Get all blogs:
-app.get('/all-blogs', (req, res)=>{
-    Blog.find()
-        .then((result)=>{
-            res.send(result)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-});
-
-//Get single blog:
-app.get('/blog-id', (req, res)=>{
-    Blog.findById("6170aa4de53604bfdee3eeaa")
-        .then((result) =>{
-            res.send(result)
-        })
-        .catch((err) =>{
-            console.log(err)
-        })
-})
-
 app.get('/', (req, res)=>{
-    const blogs = [
-        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
-        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
-        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
-        {title: "loremlorem", snipet: "loremloremloremloremloremloremloremloremlorem"},
-    ]
-    res.render('index', {title: "Home", blogs})
+    res.redirect('/blogs')
 });
 
 
 app.get('/about', (req, res)=>{
     res.render('about', {title: "About-us"})
 });
+
+//Show all blogs to the vieiw:
+app.get('/blogs', (req, res) =>{
+    Blog.find().sort({createdAt: -1})
+        .then((result) =>{
+            res.render('index', {title: 'All Blogs', blogs: result})
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+});
+
 
 app.get('/blogs/create', (req, res)=>{
     res.render('create', {title: "Create New Blog"})
