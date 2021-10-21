@@ -29,6 +29,10 @@ app.get('/about', (req, res)=>{
     res.render('about', {title: "About-us"})
 });
 
+app.get('/blogs/create', (req, res)=>{
+    res.render('create', {title: "Create New Blog"})
+})
+
 //Show all blogs to the vieiw:
 app.get('/blogs', (req, res) =>{
     Blog.find().sort({createdAt: -1})
@@ -53,10 +57,19 @@ app.post('/blogs', (req, res) =>{
         });
 })
 
-
-app.get('/blogs/create', (req, res)=>{
-    res.render('create', {title: "Create New Blog"})
+app.get('/blogs/:id', (req, res) =>{
+    const id = req.params.id;
+    Blog.findById(id)
+        .then((result)=>{
+            res.render('details', {title: 'Blog Detail', blog: result})
+            
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
+
+
 
 app.use((req,res)=>{
     res.status(404).render('404', {title: "404"})

@@ -11,10 +11,10 @@ const blogSchema = Schema({
         type: String,
         required: true
     },
-    "blog-body": {
+    body: {
         type: String,
         required: true
-    }
+    },
 }, { timestamps: true});
 
 const Blog = mongoose.model("Blog", blogSchema);
