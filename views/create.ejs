@@ -9,10 +9,10 @@
     </div>
 
     <div class="form-div">
-        <form>
-            <input type="text" placeholder="title" required><br>
-            <input type="text" placeholder="snipet" required><br>
-            <textarea name="blog body" id="" cols="30" rows="10"></textarea><br>
+        <form action="/blogs" method="POST">
+            <input type="text" placeholder="title" name="title" required><br>
+            <input type="text" placeholder="snipet" name="snipet" required><br>
+            <textarea name="blog-body" id="" cols="30" rows="10" required></textarea><br>
             
             <button type="submit">Create New blog</button>
         </form>

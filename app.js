@@ -18,6 +18,7 @@ app.set('view engine', 'ejs')
 
 //accessing static file:
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true}))
 
 app.get('/', (req, res)=>{
     res.redirect('/blogs')
@@ -38,6 +39,19 @@ app.get('/blogs', (req, res) =>{
             console.log(err)
         })
 });
+
+//Route to create blog and send to the db:
+app.post('/blogs', (req, res) =>{
+    const blog = new Blog(req.body);
+
+    blog.save()
+        .then((result) => {
+            res.redirect("/blogs")
+        })
+        .catch((err) =>{
+            console.log(err)
+        });
+})
 
 
 app.get('/blogs/create', (req, res)=>{

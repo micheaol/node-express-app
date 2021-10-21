@@ -11,7 +11,7 @@ const blogSchema = Schema({
         type: String,
         required: true
     },
-    blog: {
+    "blog-body": {
         type: String,
         required: true
     }
